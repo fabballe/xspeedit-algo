@@ -9,15 +9,15 @@ import java.util.stream.Collectors;
  */
 public class Box {
 
-    private Integer maxWeidth;
+    private Integer maxWeight;
 
     private List<Article> articles = new ArrayList<>();
 
-    public Box(Integer maxWeidth) {
-        this.maxWeidth = maxWeidth;
+    public Box(Integer maxWeight) {
+        this.maxWeight = maxWeight;
     }
 
-    public Integer sumArticleWeidth() {
+    public Integer sumArticleWeigth() {
         return articles.stream()
                 .parallel()
                 .map(article -> article.getWeight())
@@ -25,10 +25,21 @@ public class Box {
     }
 
     public Boolean isFull() {
-        return this.sumArticleWeidth() >= maxWeidth;
+        return this.sumArticleWeigth() >= maxWeight;
     }
 
     public void addArticleIntoBox(Article article){
         this.articles.add(article);
+    }
+
+    public Integer getMaxWeight() {
+        return maxWeight;
+    }
+
+    @Override
+    public String toString() {
+        return articles.parallelStream()
+                .map(article -> String.valueOf(article.getWeight()))
+                .collect(Collectors.joining());
     }
 }

@@ -32,12 +32,12 @@ public class BoxTest {
         Box box = new Box(10);
 
         box.addArticleIntoBox(new Article(5));
-        Assert.assertEquals("Sum article weidth need to be 5", Integer.valueOf(5), box.sumArticleWeidth());
+        Assert.assertEquals("Sum article weidth need to be 5", Integer.valueOf(5), box.sumArticleWeigth());
 
         box.addArticleIntoBox(new Article(4));
-        Assert.assertEquals("Sum article weidth need to be 9", Integer.valueOf(9), box.sumArticleWeidth());
+        Assert.assertEquals("Sum article weidth need to be 9", Integer.valueOf(9), box.sumArticleWeigth());
 
         box.addArticleIntoBox(new Article(1));
-        Assert.assertEquals("Sum article weidth need to be 10", Integer.valueOf(10), box.sumArticleWeidth());
+        Assert.assertEquals("Sum article weidth need to be 10", Integer.valueOf(10), box.sumArticleWeigth());
     }
 }
