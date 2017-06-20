@@ -35,7 +35,7 @@ public class XspeeditAlgoApplicationTests {
 
         // we check that all box have a total weigth under the limit
         IntStream.range(0, optimizedListBox.size()-1)
-                .allMatch(i -> optimizedListBox.get(i).sumArticleWeigth() <= 10);
+                .allMatch(i -> optimizedListBox.get(i).sumArticleWeight() <= 10);
     }
 
     @Test
@@ -48,6 +48,6 @@ public class XspeeditAlgoApplicationTests {
 
         // we check that all box have a total weigth under the limit
         IntStream.range(0, optimizedListBox.size()-1)
-                .allMatch(i -> optimizedListBox.get(i).sumArticleWeigth() <= 10);
+                .allMatch(i -> optimizedListBox.get(i).sumArticleWeight() <= 10);
     }
 }

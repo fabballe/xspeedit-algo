@@ -8,6 +8,7 @@ public class XspeeditAlgoApplication {
 
     public static void main(String[] args) {
 
+        //check input data
         if(args.length != 2)
         {
             System.out.println("Proper Usage is: java -jar xspeedit-algo-0.0.1-SNAPSHOT.jar inputArticle nbMaxWeightPerBox");
@@ -17,8 +18,10 @@ public class XspeeditAlgoApplication {
         String inputArticle = args[0];
         Integer nbMaxWeightPerBox = Integer.valueOf(args[1]);
 
+        // optimize box list
         List<Box> optimizedListBox =  XspeeditAlgoOptimizer.optimizeArticlePerBox(inputArticle, nbMaxWeightPerBox);
 
+        // Format for output
         String result = XspeeditAlgoOptimizer.formatListBoxToOutput(optimizedListBox);
 
         System.out.println("result = " + result);
