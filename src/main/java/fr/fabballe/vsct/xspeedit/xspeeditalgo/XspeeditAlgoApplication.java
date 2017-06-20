@@ -5,8 +5,11 @@ public class XspeeditAlgoApplication {
     public static void main(String[] args) {
 
         String inputArticle = args[0];
+//        Integer nbMaxPerBox = Integer.valueOf(args[1]);
 
-        String optimizedArticle = XspeeditAlgoOptimizer.optimizeArticlePerBox(inputArticle);
+        Integer nbMaxPerBox = 10;
+
+        String optimizedArticle = XspeeditAlgoOptimizer.optimizeArticlePerBox(inputArticle, nbMaxPerBox);
 
         System.out.println("optimizedArticle = " + optimizedArticle);
 
