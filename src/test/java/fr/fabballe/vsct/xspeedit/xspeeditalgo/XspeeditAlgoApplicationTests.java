@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -49,5 +50,32 @@ public class XspeeditAlgoApplicationTests {
         // we check that all box have a total weigth under the limit
         IntStream.range(0, optimizedListBox.size()-1)
                 .allMatch(i -> optimizedListBox.get(i).sumArticleWeight() <= 10);
+    }
+
+    @Test
+    public void testFormatListBoxToOutput(){
+        List<Box> boxes = new ArrayList<>();
+        Box firstBox = new Box(10);
+        firstBox.addArticleIntoBox(new Article(8));
+        firstBox.addArticleIntoBox(new Article(1));
+
+        Box secondBox = new Box(10);
+        secondBox.addArticleIntoBox(new Article(3));
+        secondBox.addArticleIntoBox(new Article(4));
+        secondBox.addArticleIntoBox(new Article(3));
+
+        Box thirdBox = new Box(10);
+        thirdBox.addArticleIntoBox(new Article(7));
+        thirdBox.addArticleIntoBox(new Article(3));
+
+        boxes.add(firstBox);
+        boxes.add(secondBox);
+        boxes.add(thirdBox);
+
+        String expectedResult = "81/343/73";
+
+        String output = XspeeditAlgoOptimizer.formatListBoxToOutput(boxes);
+
+        Assert.assertEquals("Values should be equals", expectedResult, output);
     }
 }
