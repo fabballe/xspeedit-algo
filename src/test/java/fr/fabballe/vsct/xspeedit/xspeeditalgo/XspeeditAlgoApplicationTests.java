@@ -52,6 +52,33 @@ public class XspeeditAlgoApplicationTests {
                 .allMatch(i -> optimizedListBox.get(i).sumArticleWeight() <= 10);
     }
 
+
+    @Test
+    public void testOptimisation3() {
+        String inputArticle = "8458753215971231";
+
+        List<Box> optimizedListBox = XspeeditAlgoOptimizer.optimizeArticlePerBox(inputArticle, 10);
+
+        Assert.assertEquals("We need to have 8 box", 8, optimizedListBox.size());
+
+        // we check that all box have a total weigth under the limit
+        IntStream.range(0, optimizedListBox.size()-1)
+                .allMatch(i -> optimizedListBox.get(i).sumArticleWeight() <= 10);
+    }
+
+    @Test
+    public void testOptimisation4() {
+        String inputArticle = "8458753215971231";
+
+        List<Box> optimizedListBox = XspeeditAlgoOptimizer.optimizeArticlePerBox(inputArticle, 15);
+
+        Assert.assertEquals("We need to have 5 box", 5, optimizedListBox.size());
+
+        // we check that all box have a total weigth under the limit
+        IntStream.range(0, optimizedListBox.size()-1)
+                .allMatch(i -> optimizedListBox.get(i).sumArticleWeight() <= 15);
+    }
+
     @Test
     public void testFormatListBoxToOutput(){
         List<Box> boxes = new ArrayList<>();
